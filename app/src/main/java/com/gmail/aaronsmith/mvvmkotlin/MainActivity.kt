@@ -3,7 +3,9 @@ package com.gmail.aaronsmith.mvvmkotlin
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.gmail.aaronsmith.mvvmkotlin.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         user.name = "Aaron"
         user.password = "123456"
 
-        user.name = "Smith"
+        change.setOnClickListener {
+            Log.e("aaron","smith")
+            user.name = "Smith"
+        }
     }
 }
