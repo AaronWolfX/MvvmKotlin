@@ -18,7 +18,8 @@ class BannerPagerAdapter : PagerAdapter() {
     var mData: List<Int> = listOf()
     lateinit var viewPager: ViewPager
     lateinit var handle: Handler
-    lateinit var currentView:ImageView
+    lateinit var currentView: ImageView
+    var currentPosition = -2
 
     fun addData(
         data: List<Int>,
@@ -56,6 +57,8 @@ class BannerPagerAdapter : PagerAdapter() {
     override fun setPrimaryItem(container: ViewGroup, position: Int, `object`: Any) {
         super.setPrimaryItem(container, position, `object`)
         currentView = `object` as ImageView
+        Log.e("aaronP", "position: $position")
+        currentPosition = position
     }
 
 }
