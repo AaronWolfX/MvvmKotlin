@@ -1,4 +1,4 @@
-package com.gmail.aaronsmith.mvvmkotlin
+package com.gmail.aaronsmith.mvvmkotlin.banner
 
 import android.os.Handler
 import android.support.v4.view.PagerAdapter
@@ -18,6 +18,7 @@ class BannerPagerAdapter : PagerAdapter() {
     var mData: List<Int> = listOf()
     lateinit var viewPager: ViewPager
     lateinit var handle: Handler
+    lateinit var currentView:ImageView
 
     fun addData(
         data: List<Int>,
@@ -50,18 +51,11 @@ class BannerPagerAdapter : PagerAdapter() {
 
     override fun finishUpdate(container: ViewGroup) {
         super.finishUpdate(container)
-        if (viewPager != null) {
-            var position = viewPager.currentItem
-
-//            if (position == 4) {
-//                viewPager.setCurrentItem(1, false)
-//                handle.sendEmptyMessageDelayed(1001, 3000)
-//                Log.e("aaron", "finishUpdate:  position == 4")
-//            } else if (position == 0) {
-//                viewPager.setCurrentItem(3, false)
-//                handle.sendEmptyMessageDelayed(1001, 3000)
-//                Log.e("aaron", "finishUpdate:  position == 0")
-//            }
-        }
     }
+
+    override fun setPrimaryItem(container: ViewGroup, position: Int, `object`: Any) {
+        super.setPrimaryItem(container, position, `object`)
+        currentView = `object` as ImageView
+    }
+
 }
