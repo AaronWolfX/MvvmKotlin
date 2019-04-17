@@ -31,7 +31,7 @@ class User2 : BaseObservable() {
     var name: String? = null
         set(name) {
             field = name
-            notifyChange()
+            notifyPropertyChanged(BR.name)
         }
     @get:Bindable
     var password: String? = null

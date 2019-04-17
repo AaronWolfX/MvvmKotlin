@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="userInfo" type="com.gmail.aaronsmith.mvvmkotlin.User"/>
+        <variable name="userInfo" type="com.gmail.aaronsmith.mvvmkotlin.User2"/>
     </data>
 
     <LinearLayout
