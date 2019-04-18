@@ -2,9 +2,9 @@ package com.gmail.aaronsmith.mvvmkotlin
 
 import android.databinding.DataBindingUtil
 import android.databinding.Observable
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.gmail.aaronsmith.mvvmkotlin.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 

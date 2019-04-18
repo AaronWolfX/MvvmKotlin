@@ -1,10 +1,14 @@
 package com.gmail.aaronsmith.mvvmkotlin.Service
 
+import android.Manifest
 import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.IBinder
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.webkit.PermissionRequest
 import com.gmail.aaronsmith.mvvmkotlin.R
@@ -17,6 +21,7 @@ import java.util.*
  */
 class TextService : Service() {
     var i = 0
+
 
     override fun onCreate() {
         super.onCreate()
@@ -49,8 +54,9 @@ class TextService : Service() {
             .setContentText("aaaaa")
             .setContentIntent(pIntent)
             .build()
-
         startForeground(0x1989, notification)
+
+
     }
 
 }
