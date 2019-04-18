@@ -1,9 +1,13 @@
 package com.gmail.aaronsmith.mvvmkotlin.Service
 
+import android.app.Notification
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import android.webkit.PermissionRequest
+import com.gmail.aaronsmith.mvvmkotlin.R
 import java.util.*
 
 
@@ -16,33 +20,37 @@ class TextService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        foregroundRun()
         Log.e("aaron", "service create")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.e("aaron", "onStartCommand")
-        logTime()
-        return super.onStartCommand(intent, flags, startId)
+        return START_REDELIVER_INTENT
     }
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
-    fun logTime() {
-        Timer().schedule(object : TimerTask() {
-            override fun run() {
-                i++
-                Log.e("aaron", "current time :" + i)
-                logTime()
-            }
-
-        }, 1000)
-    }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.e("aaron","destroy")
+        Log.e("aaron", "destroy")
+
+    }
+
+    fun foregroundRun() {
+        val pIntent = PendingIntent.getActivity(this, 0, Intent(this, ServiceActivity::class.java), 0)
+        val notification = Notification.Builder(this)
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setTicker("ina-ina")
+            .setContentTitle("lllll")
+            .setContentText("aaaaa")
+            .setContentIntent(pIntent)
+            .build()
+
+        startForeground(0x1989, notification)
     }
 
 }

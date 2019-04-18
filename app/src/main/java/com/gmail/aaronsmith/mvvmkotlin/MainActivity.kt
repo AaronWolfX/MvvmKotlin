@@ -40,4 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e("aaron","activity stop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("aaron","activity destroy")
+    }
+
 }
